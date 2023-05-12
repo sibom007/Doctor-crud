@@ -19,7 +19,15 @@ const Navber = () => {
     const naviten = <>
         <li><Link>Home</Link></li>
         <li><Link>About</Link></li>
-        {user?.email ? <li><button onClick={handlearlogout}>LogOut</button></li> : <li><Link to={'/Login'}>Login</Link></li>}
+        {user?.email ? <> 
+        <li><Link to={"Bookings"}>My Bookings</Link></li>
+        <li><button onClick={handlearlogout}>LogOut</button></li> 
+
+        
+        </>  
+        : 
+        <li><Link to={'/Login'}>Login</Link></li>
+        }
 
     </>
 

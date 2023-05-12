@@ -9,7 +9,8 @@ const Checkout = () => {
 
     const services = useLoaderData();
 
-    const { _id, title, price, service_id } = services;
+    const { _id, title, price, img } = services;
+
 
     const { user } = useContext(Authcontext)
 
@@ -30,26 +31,28 @@ const Checkout = () => {
             customerDate: Date,
             customeremail: email,
             customerprice: price,
-            services: _id
+            services: _id,
+            img: img
         }
+
         console.log(Booking);
 
         fetch('http://localhost:5000/bookings', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(Booking)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(Booking)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
 
     }
 
 
-    
+
 
     return (
         <div>
