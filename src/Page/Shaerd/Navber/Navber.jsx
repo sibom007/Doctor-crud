@@ -1,14 +1,26 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/icons/logo.svg'
+import { useContext } from "react";
+import { Authcontext } from "../../../provider/Authprovider";
 
 
 const Navber = () => {
+
+
+    const { user,Logout } = useContext(Authcontext);
+
+    const handlearlogout =()=>{
+        Logout()
+        .then(()=>{})
+        .catch(error => console.log(error))
+    }
+
+
     const naviten = <>
         <li><Link>Home</Link></li>
         <li><Link>About</Link></li>
-        <li><Link to={'/Login'}>Login</Link></li>
-        <li><Link>Home</Link></li>
-        
+        {user?.email ? <li><button onClick={handlearlogout}>LogOut</button></li> : <li><Link to={'/Login'}>Login</Link></li>}
+
     </>
 
     return (
@@ -26,7 +38,7 @@ const Navber = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                {naviten}
+                    {naviten}
                 </ul>
             </div>
             <div className="navbar-end">
