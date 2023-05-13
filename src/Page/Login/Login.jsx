@@ -1,24 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import photo from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { Authcontext } from '../../provider/Authprovider';
+import { useLocation } from "react-router-dom"
+import Sacial from '../Shaerd/Shacial/Sacial';
 
 const Login = () => {
 
-    const { Signin } =useContext(Authcontext);
+    const { Signin } = useContext(Authcontext);
+    const location = useLocation();
+    const Navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handlersubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value
         const password = form.password.value
-      
-        Signin(email,password)
-        .then(result =>{
-            const user =result.user;
-            console.log(user);
-        })
-        .catch(error => console.log(error))
+
+        Signin(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Navigate(from, { replace: true })
+            })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -51,8 +58,9 @@ const Login = () => {
                             </div>
                         </form>
                         <h1>create new accound <Link className='text-red-500' to={'/Signup'}>Sign up</Link> </h1>
-                        
+
                     </div>
+                    <Sacial />
                 </div>
             </div>
         </div>

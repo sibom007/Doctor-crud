@@ -11,7 +11,9 @@ const Navber = () => {
 
     const handlearlogout =()=>{
         Logout()
-        .then(()=>{})
+        .then(()=>{
+            
+        })
         .catch(error => console.log(error))
     }
 

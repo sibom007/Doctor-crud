@@ -8,6 +8,7 @@ import Login from "../Page/Login/Login";
 import Singup from "../Page/Signup/Singup";
 import Checkout from "../Page/Checkout/Checkout";
 import Bookings from "../Page/Bookings/Bookings";
+import Privetrout from "./Privetrout";
 
 
 const router = createBrowserRouter([
@@ -29,13 +30,15 @@ const router = createBrowserRouter([
       },
       {
         path: "Bookings",
-        element:<Bookings />
+        element: <Bookings />
       },
       {
         path: '/checkout/:id',
-        element: <Checkout />,
-        loader: ({ params }) => 
-          fetch(`http://localhost:5000/services/${params.id}`)
+        element: <Privetrout>
+          <Checkout />
+        </Privetrout>,
+        loader: ({ params }) =>
+          fetch(`https://doctor-curd-server.vercel.app/services/${params.id}`)
       }
     ]
   },
