@@ -42,7 +42,7 @@ const Authprovider = ({ children }) => {
         const loggedUser = {
           email: currentUser.email
         }
-        fetch('https://doctor-curd-server.vercel.app/jwt', {
+        fetch('https://doctor-curd-server-sibom007.vercel.app/jwt', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

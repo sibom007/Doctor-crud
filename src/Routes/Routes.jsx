@@ -38,7 +38,7 @@ const router = createBrowserRouter([
           <Checkout />
         </Privetrout>,
         loader: ({ params }) =>
-          fetch(`https://doctor-curd-server.vercel.app/services/${params.id}`)
+          fetch(`https://doctor-curd-server-sibom007.vercel.app/services/${params.id}`)
       }
     ]
   },

@@ -13,7 +13,7 @@ const Bookings = () => {
     const [Bookings, setBookings] = useState([])
     const Navigate =useNavigate()
 
-    const url = `https://doctor-curd-server.vercel.app/bookings?email=${user?.email}`
+    const url = `https://doctor-curd-server-sibom007.vercel.app/bookings?email=${user?.email}`
 
     useEffect(() => {
         fetch(url,{
@@ -45,7 +45,7 @@ const Bookings = () => {
         const proceed = confirm('Are you sure')
 
         if (proceed) {
-            fetch(`https://doctor-curd-server.vercel.app/bookings/${id}`, {
+            fetch(`https://doctor-curd-server-sibom007.vercel.app/bookings/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -69,7 +69,7 @@ const Bookings = () => {
 
 
 
-        fetch(`https://doctor-curd-server.vercel.app/bookings/${id}`, {
+        fetch(`https://doctor-curd-server-sibom007.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

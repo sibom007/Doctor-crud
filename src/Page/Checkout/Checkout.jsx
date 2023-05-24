@@ -37,7 +37,7 @@ const Checkout = () => {
 
         console.log(Booking);
 
-        fetch('https://doctor-curd-server.vercel.app/bookings', {
+        fetch('https://doctor-curd-server-sibom007.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
